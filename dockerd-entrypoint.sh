@@ -155,9 +155,9 @@ if [ "$1" = 'dockerd' ]; then
 			if /usr/local/sbin/.iptables-legacy/iptables -nL > /dev/null 2>&1; then
 				# see https://github.com/docker-library/docker/issues/463 (and the dind Dockerfile where this directory is set up)
 				export PATH="/usr/local/sbin/.iptables-legacy:$PATH"
-			elif iptables -nL 2>&1 >/dev/null | grep -q tables-legacy; then
-				export PATH="/usr/local/sbin/.iptables-legacy:$PATH"
 			fi
+		elif iptables -nL 2>&1 >/dev/null | grep -q tables-legacy; then
+			export PATH="/usr/local/sbin/.iptables-legacy:$PATH"                        
 		fi
 	fi
 
